@@ -5,11 +5,11 @@ from dotenv import load_dotenv
 if os.path.exists('config.env'):
   load_dotenv('config.env')
 
-api_id = int(os.environ.get("API_ID"))
-api_hash = os.environ.get("API_HASH")
-bot_token = os.environ.get("BOT_TOKEN")
+api_id = int(os.environ.get("7211200915"))
+api_hash = os.environ.get("79612bc71908f95372808520a7eeee74")
+bot_token = os.environ.get("7211200915:AAHYmpFqwjyhvVqdXZzjQuBBn7HaJna1gfs")
 download_dir = os.environ.get("DOWNLOAD_DIR", "downloads/")
-sudo_users = list(set(int(x) for x in os.environ.get("SUDO_USERS").split()))
+sudo_users = list(set(int(x) for x in os.environ.get("2021408974").split()))
 
 app = Client(":memory:", api_id=api_id, api_hash=api_hash, bot_token=bot_token)
 
