@@ -1,3 +1,5 @@
+# __init__.py
+
 import os
 from pyrogram import Client
 from dotenv import load_dotenv
@@ -30,9 +32,6 @@ try:
 except ValueError as e:
     raise ValueError(f"Error processing environment variable 'SUDO_USERS': {e}")
 
-# Example usage
-print(f"Sudo users: {sudo_users}")
-
 # Initialize the Pyrogram Client
 app = Client(":memory:", api_id=api_id, api_hash=api_hash, bot_token=bot_token)
 
@@ -41,3 +40,6 @@ if not download_dir.endswith("/"):
     download_dir += "/"
 if not os.path.isdir(download_dir):
     os.makedirs(download_dir)
+
+# Initialize data (if needed)
+data = []
