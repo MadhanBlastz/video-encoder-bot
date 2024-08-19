@@ -5,7 +5,12 @@ from dotenv import load_dotenv
 if os.path.exists('config.env'):
   load_dotenv('config.env')
 
-api_id = int(os.environ.get("7211200915"))
+# Directly set the API ID
+api_id = 7211200915
+
+# Print the API ID (or use it in your application)
+print(f"API ID is: {api_id}")
+
 api_hash = os.environ.get("79612bc71908f95372808520a7eeee74")
 bot_token = os.environ.get("7211200915:AAHYmpFqwjyhvVqdXZzjQuBBn7HaJna1gfs")
 download_dir = os.environ.get("DOWNLOAD_DIR", "downloads/")
