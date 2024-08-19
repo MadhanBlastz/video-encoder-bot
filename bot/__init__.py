@@ -2,21 +2,22 @@ import os
 from pyrogram import Client
 from dotenv import load_dotenv
 
+# Load environment variables from a file if it exists
 if os.path.exists('config.env'):
-  load_dotenv('config.env')
+    load_dotenv('config.env')
 
 # Directly set the API ID
 api_id = 7211200915
 
-# Print the API ID (or use it in your application)
-print(f"API ID is: {api_id}")
+# Directly set the API Hash and Bot Token
+api_hash = "79612bc71908f95372808520a7eeee74"
+bot_token = "7211200915:AAHYmpFqwjyhvVqdXZzjQuBBn7HaJna1gfs"
 
-api_hash = os.environ.get("79612bc71908f95372808520a7eeee74")
-bot_token = os.environ.get("7211200915:AAHYmpFqwjyhvVqdXZzjQuBBn7HaJna1gfs")
+# Default download directory
 download_dir = os.environ.get("DOWNLOAD_DIR", "downloads/")
 
-# Retrieve the environment variable
-env_var = os.environ.get("2021408974")
+# Retrieve the environment variable for sudo users
+env_var = os.environ.get("SUDO_USERS")
 
 # Check if the environment variable is set and not None
 if env_var is None:
@@ -27,16 +28,16 @@ if env_var is None:
 try:
     sudo_users = list(set(int(x) for x in env_var.split() if x))
 except ValueError as e:
-    raise ValueError(f"Error processing environment variable '2021408974': {e}")
+    raise ValueError(f"Error processing environment variable 'SUDO_USERS': {e}")
 
 # Example usage
 print(f"Sudo users: {sudo_users}")
 
+# Initialize the Pyrogram Client
 app = Client(":memory:", api_id=api_id, api_hash=api_hash, bot_token=bot_token)
 
-data = []
-
+# Ensure download directory exists
 if not download_dir.endswith("/"):
-  download_dir = str(download_dir) + "/"
+    download_dir += "/"
 if not os.path.isdir(download_dir):
-  os.makedirs(download_dir)
+    os.makedirs(download_dir)
